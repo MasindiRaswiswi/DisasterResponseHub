@@ -1,0 +1,65 @@
+﻿@model Donor
+
+<div class="container">
+    <div class="page-header">
+        <h2>Add Donor</h2>
+        <hr />
+    </div>
+
+    <form method="post" asp-controller="Request" asp-action="Add">
+        <div class="pl-2 text-danger" asp-validation-summary="All"></div>
+
+        <div class="row">
+            <div class="form-group">
+                <input class="form-control" asp-for="@Model.DonorID" type="hidden"/>
+            </div>
+
+            <div class="form-group ">
+                <label class="col-form-label" asp-for="@Model.Name"></label>
+                <input class="form-control" asp-for="@Model.Name" />
+            </div>
+
+            <div class="form-group ">
+                <label class="col-form-label" asp-for="@Model.GoodsDonated.DateDonated"></label>
+                <input type="date" class="form-control" asp-for="@Model.GoodsDonated.DateDonated" />
+            </div>
+
+            <div class="form-group ">
+                <label class="col-form-label" asp-for="@Model.GoodsDonated.Amount"></label>
+                <input class="form-control" asp-for="@Model.GoodsDonated.Amount" />
+            </div>
+
+            <div class="form-group ">
+                <label class="col-form-label" asp-for="@Model.GoodsDonated.NumberOfItems"></label>
+                <input class="form-control" asp-for="@Model.GoodsDonated.NumberOfItems" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.GoodsDonated.DonationCategory">Donor Type</label>
+                <select asp-for="@Model.GoodsDonated.DonationCategory" class="form-control">
+                    <option value="0">Monetary</option>
+                    <option value="1">Clothes</option>
+                    <option value="2">Food</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.DonorType">Donor Type</label>
+                <select asp-for="@Model.DonorType" class="form-control">
+                    <option value="0">Individual</option>
+                    <option value="1">Company</option>
+                    <option value="2">Organization</option>
+                    <option value="3">Government</option>
+                </select>
+            </div>
+
+            <div class="form-group pt-1 pb-1">
+                <input type="checkbox" class="form-check-input" asp-for="@Model.IsAnonymous">
+                <label class="form-check-label" asp-for="@Model.IsAnonymous">Is Anonymous</label>
+            </div>
+        </div>
+
+        <button class="btn btn-info" type="submit">Add</button>
+        <button class="btn btn-danger" type="reset">Reset</button>
+    </form>
+</div>
