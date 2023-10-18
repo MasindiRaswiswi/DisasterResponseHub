@@ -51,7 +51,7 @@ namespace DisasterResponseHub.Controllers
                 {
                     await _userManager.AddToRoleAsync(user, ROLE);
                     Message = $"{registerViewModel.Username} was successfully added";
-                    return RedirectToAction("Admins", "Account");
+                    return RedirectToAction("Login", "Account");
                 }
                 else
                 {
@@ -82,7 +82,7 @@ namespace DisasterResponseHub.Controllers
                     var result = await _signInManager.PasswordSignInAsync(user, loginViewModel.Password, false, false);
                     if (result.Succeeded)
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("ViewDonors", "Donor");
                     }
                 }
                 ModelState.AddModelError("", "Invalid email or email");
