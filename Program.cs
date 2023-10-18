@@ -1,3 +1,4 @@
+using DisasterResponseHub.Data;
 using DisasterResponseHub.Infrastructure;
 using DisasterResponseHub.ResourceAccess;
 using Microsoft.AspNetCore.Identity;
@@ -6,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddTransient<IRepositoryWrapper, CRepositoryWrapper>();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString));

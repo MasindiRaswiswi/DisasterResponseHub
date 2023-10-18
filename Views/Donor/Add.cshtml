@@ -3,10 +3,11 @@
 <div class="container">
     <div class="page-header">
         <h2>Add Donor</h2>
+        <p>@ViewData["Message"]</p>
         <hr />
     </div>
 
-    <form method="post" asp-controller="Request" asp-action="Add">
+    <form method="post" asp-controller="Donor" asp-action="Add">
         <div class="pl-2 text-danger" asp-validation-summary="All"></div>
 
         <div class="row">

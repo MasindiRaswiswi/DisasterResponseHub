@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<Donor>
+
+@{
     ViewData["Title"] = "Donors";
 }
 
@@ -7,24 +9,25 @@
 <table class="table">
     <thead class="thead-dark">
         <tr>
-            <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Date</th>
             <th scope="col">Amount(R)</th>
             <th scope="col">Items</th>
             <th scope="col">Category</th>
-            <th scope="col">Action</th>
+            <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>mdo</td>
-            <td>mdo</td>
-            <td>mdo</td>
-            <td><a class="btn btn-outline-danger" href="#">Donate</a></td>
+            @foreach (var item in Model)
+            {
+                <td>@item.Name</td>
+                <td>@item.GoodsDonated.DateDonated</td>
+                <td>@item.GoodsDonated.Amount</td>
+                <td>@item.GoodsDonated.NumberOfItems</td>
+                <td>@item.GoodsDonated.DonationCategory</td>
+                <td><a class="btn btn-outline-danger" href="#">Donate</a></td>
+            }
         </tr>
     </tbody>
 </table>

@@ -2,5 +2,6 @@
 {
     public interface IRepositoryWrapper
     {
+        public IRespositoryDonor _RepositoryDonor { get; }
     }
 }

@@ -19,6 +19,9 @@ namespace DisasterResponseHub.Models
 
     public class GoodsDonated
     {
+        [Key]
+        public int GoodDonatedId { get; set; }
+
         [Required]
         public DateTime DateDonated { get; set; }
 
